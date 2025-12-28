@@ -21,7 +21,7 @@ export default function app() {
         3. Aynı kalıp sonraki tıklamalar için de tekrarlanmalıdır, böylece kullanıcı kartı istediği kadar ileri geri çevirmeye devam edebilir. 
 */
   function handleClick() {
-    setFlashCard((s) => ({ ...s, flipped: !s.flipped }));
+    setFlashCard({ ...flashCard, flipped: !flashCard.flipped });
   }
   return (
     <div>
