@@ -7,8 +7,8 @@ export default function app() {
     choices: ["JavaScript framework'ü", "JavaScript kütüphanesi"],
     answer: "JavaScript kütüphanesi.",
     explanation: `Birinin framework diyebilme cüretini gösterdiğini duyarsanız, onu mümkün olduğunca bilgili bir şekilde düzeltmeniz, tercihen yanıtınıza " aslında..." diye başlamanız önemlidir.`,
+    flipped: false,
   });
-  const [rotate, setRotate] = useState(false);
 
   /* Challenge: 
 
@@ -21,7 +21,7 @@ export default function app() {
         3. Aynı kalıp sonraki tıklamalar için de tekrarlanmalıdır, böylece kullanıcı kartı istediği kadar ileri geri çevirmeye devam edebilir. 
 */
   function handleClick() {
-    setRotate((s) => !s);
+    setFlashCard((s) => ({ ...s, flipped: !s.flipped }));
   }
   return (
     <div>
@@ -34,7 +34,7 @@ export default function app() {
 
       <div
         onClick={handleClick}
-        className={`flash-card ${rotate ? "flipped" : ""}`}
+        className={`flash-card ${flashCard.flipped ? "flipped" : ""}`}
       >
         {/*-------Yukarıdaki div'i düzenleyin------------*/}
 
